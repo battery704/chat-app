@@ -1,0 +1,132 @@
+/* .chatbox {
+      max-width: 600px;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background-color: #f8f9fa;
+    }
+    .chat-input {
+      border-top: 1px solid #ccc;
+      padding: 10px;
+    }
+          
+    }
+    body{
+    background-color: #f1faee;
+    }
+    .box{
+        align-items: baseline;
+        display: flex;
+        
+        justify-content: center;
+    } */
+.head{
+   align-self: flex-start;
+    
+}    
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+}
+
+.chat-container {
+  max-width:  300px;
+  height: 70vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+.chat-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+
+
+.message.incoming .text {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+}
+.message.incoming {
+  justify-content: flex-start;
+}
+
+
+.message.outgoing {
+  justify-content: flex-end;
+}
+
+.message.outgoing .text {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-bottom-left-radius: 8px;
+}
+
+.chat-input button {
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #45a049;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: space-around;
+    height:90vh;
+
+}

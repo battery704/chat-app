@@ -1,34 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chat-app</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>
-        chatting
-    </h1>
-   
-    <input type="text" placeholder="enter message " id="message">
+    <div class="head order-1">
+        <h1>CHAT-APP</h1>
+    </div>
+
+    <div class="box">
+
+        <div class="cont">
+            <div class="chat-container">
+                <div class="chat-header">Chat with A</div>
+                <div class="chat-messages" >
+                    <div class="message incoming" id="messages">
+
+                        <div class="text"></div>
+                    </div>
+                    <div class="message outgoing">
+                        <div class="text" id="out"></div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Type your message..." />
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="chat-container">
+                <div class="chat-header">Chat with A</div>
+                <div class="chat-messages" id="messages2">
+                    <div class="message incoming">
+
+                        <div class="text">Hello! How can I assist you today?</div>
+                    </div>
+                    <div class="message outgoing">
+                        <div class="text" >I have a question about your services.</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput2" placeholder="Type your message..." />
+                    <button id="sendBtn2">Send</button>
+                </div>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="chat-container">
+                <div class="chat-header">Chat with A</div>
+                <div class="chat-messages" id="messages3">
+                    <div class="message incoming">
+
+                        <div class="text">Hello! How can I assist you today?</div>
+                    </div>
+                    <div class="message outgoing">
+                        <div class="text">I have a question about your services.</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput3" placeholder="Type your message..." />
+                    <button id="sendBtn3">Send</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- //
+    <div>
+       
+    <div class="chatbox">
+        <div>
+             <div id="messages"></div>
+        </div>
+        <div class="box">
+    <input type="text" placeholder="enter message " id="message" >
     <button id="send">send</button>
+    </div>
+    </div>
+    </div>
+    
+     -->
+
     <script src="/socket.io/socket.io.js"></script>
-     <div id="messages"></div>
+
+
     <script>
-        const socket=io();
-        const send=document.getElementById("send");
-        const messageInput=document.getElementById("message");
-        const allmessages=document.getElementById("messages");
-        socket.on("message", (mess)=>{
-            const p=document.createElement('p');
-            p.innerText=mess;
-            allmessages.appendChild(p);
+        const socket = io();
+        const send = document.getElementById("sendBtn");
+        const messageInput = document.getElementById("messageInput");
+        const allmessagesi = document.getElementById("messages");
+        const outgoing =document.getElementById("out")
+        socket.on("message", (mess) => {
+            const p = document.createElement('p');
+            p.innerText = mess;
+            
+            allmessagesi.appendChild(p);
+            allmessagesi.insertAdjacentHTML('beforeend', '<br>');
+            //allmessagesi.textContent += '\n';
             console.log(mess);
         });
-        send.addEventListener("click",(e)=>{
+        send.addEventListener("click", (e) => {
+           
             const mess = messageInput.value;
-            socket.emit("user-message",mess);
-         });
+            socket.emit("user-message", mess);
+            const p=document.createElement('p');
+            p.innerText=mess;
+            outgoing.appendChild(p);
+        });
     </script>
 </body>
+
 </html>

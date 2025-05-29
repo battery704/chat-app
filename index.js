@@ -13,10 +13,10 @@ app.get("/",(req,res)=>{
 io.on("connection",(socket)=>
 {   
     socket.on("user-message",(mess)=>{
-        io.emit("message", mess);
+        socket.broadcast.emit("message", mess);
+        console.log(mess);
     });   
     //console.log("new user connected ", socket.id);
 });
 server.listen(9000,()=> console.log("server started...."));
 
-///hassannnn

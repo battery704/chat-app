@@ -9,112 +9,57 @@
 </head>
 
 <body>
-    <div class="head order-1">
-        <h1>CHAT-APP</h1>
-    </div>
+    <span>
+      <img src="name.png" height="70" width="200" alt="">
+    </span>
 
-    <div class="box">
-
-        <div class="cont">
-            <div class="chat-container">
-                <div class="chat-header">Chat with A</div>
-                <div class="chat-messages" >
-                    <div class="message incoming" id="messages">
-
-                        <div class="text"></div>
-                    </div>
-                    <div class="message outgoing">
-                        <div class="text" id="out"></div>
-                    </div>
+            <div class="main">
+                <div class="chat-header">
+                  <span class="logo"><img src="lm.png" alt="logo" height="70" width="90"></span>
+                  <input type="text" class="name" id="name1" placeholder="           Anonymous" />
                 </div>
-                <div class="chat-input">
-                    <input type="text" id="messageInput" placeholder="Type your message..." />
-                    <button id="sendBtn">Send</button>
-                </div>
-            </div>
-        </div>
-        <div class="cont">
-            <div class="chat-container">
-                <div class="chat-header">Chat with A</div>
-                <div class="chat-messages" id="messages2">
-                    <div class="message incoming">
-
-                        <div class="text">Hello! How can I assist you today?</div>
+                <ul class="msg-cont" >
+                    
+ 
+                        <li class="left-text">
+                          <p class="msg">hii from left </p>
+                            <span>left side  @30-may 2026</span>
+                         
+                        </li>
+                        
+                    
+ 
+                        <li class="right-text">
+                          <p class="msg">hii from right </p>
+                            <span>right side  @30-may 2026</span>
+                        </li>
+                        
+                        <li class="msg-feed">
+                          <p class="feed">is typing....</p>
+                        </li>
+                    
+                    </ul>
+                  
+                    
+                      <form class="msg-form">
+                    <input type="text" class="messageInput" id="messageInput" placeholder="Type your message..." />
+                    <div class="v-divider"></div>
+                    <button class="sendBtn">Send</button>
+                      </form>
+                      
                     </div>
-                    <div class="message outgoing">
-                        <div class="text" >I have a question about your services.</div>
-                    </div>
-                </div>
-                <div class="chat-input">
-                    <input type="text" id="messageInput2" placeholder="Type your message..." />
-                    <button id="sendBtn2">Send</button>
-                </div>
-            </div>
-        </div>
-        <div class="cont">
-            <div class="chat-container">
-                <div class="chat-header">Chat with A</div>
-                <div class="chat-messages" id="messages3">
-                    <div class="message incoming">
+                    <h3>Total client:3</h3>
 
-                        <div class="text">Hello! How can I assist you today?</div>
-                    </div>
-                    <div class="message outgoing">
-                        <div class="text">I have a question about your services.</div>
-                    </div>
-                </div>
-                <div class="chat-input">
-                    <input type="text" id="messageInput3" placeholder="Type your message..." />
-                    <button id="sendBtn3">Send</button>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-    <!-- //
-    <div>
-       
-    <div class="chatbox">
-        <div>
-             <div id="messages"></div>
-        </div>
-        <div class="box">
-    <input type="text" placeholder="enter message " id="message" >
-    <button id="send">send</button>
-    </div>
-    </div>
-    </div>
-    
-     -->
+                
+            
+        
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>               
+    
+    
 
-
-    <script>
-        const socket = io();
-        const send = document.getElementById("sendBtn");
-        const messageInput = document.getElementById("messageInput");
-        const allmessagesi = document.getElementById("messages");
-        const outgoing =document.getElementById("out")
-        socket.on("message", (mess) => {
-            const p = document.createElement('p');
-            p.innerText = mess;
-            
-            allmessagesi.appendChild(p);
-            allmessagesi.insertAdjacentHTML('beforeend', '<br>');
-            //allmessagesi.textContent += '\n';
-            console.log(mess);
-        });
-        send.addEventListener("click", (e) => {
-           
-            const mess = messageInput.value;
-            socket.emit("user-message", mess);
-            const p=document.createElement('p');
-            p.innerText=mess;
-            outgoing.appendChild(p);
-        });
-    </script>
+    
 </body>
 
 </html>
